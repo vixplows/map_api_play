@@ -7,10 +7,16 @@ var MapWrapper = function(container, coords, zoom) {
 }
 
 MapWrapper.prototype = {
-  addMarker: function(coords) {
+  addMarker: function(details) {
     var marker = new google.maps.Marker({
-      position: coords,
+      position: details.coords,
       map: this.googleMap
+    });
+    var infowindow = new google.maps.InfoWindow({
+      content: details.content
+    });
+    marker.addListener('click', function() {
+      infowindow.open(this.googleMap, marker)
     });
     this.markers.push(marker);
   },
@@ -31,4 +37,11 @@ MapWrapper.prototype = {
       marker.setAnimation(google.maps.Animation.BOUNCE);
     })
   },
+
+  takeToMelb: function() {
+    map.setCenter
+    55.9630725
+    -3.1710094
+  }
+
 }
