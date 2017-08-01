@@ -24,11 +24,14 @@ MapWrapper.prototype = {
   addClickEvent: function() {
     google.maps.event.addListener(this.googleMap, 'click', 
       function(event) {
-        var position = {
+        var details = {
+          content: 'tbc',
+          coords: {
           lat: event.latLng.lat(),
           lng: event.latLng.lng()
+        }
         };
-        this.addMarker(position);
+        this.addMarker(details);
     }.bind(this));
   },
 
@@ -38,10 +41,8 @@ MapWrapper.prototype = {
     })
   },
 
-  takeToMelb: function() {
-    map.setCenter
-    55.9630725
-    -3.1710094
-  }
+  takeToMelbButton: function(coords) {
+    this.googleMap.setCenter({lat: -37.8106733, lng: 144.9629183});
+  },
 
 }
